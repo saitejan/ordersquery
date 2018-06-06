@@ -1,0 +1,18 @@
+                                Project plan
+
+
+1) Create nodejs server:-
+
+
+2)commit on github.
+
+
+3)create index.html
+
+    add bower.json
+     add client side library
+4) node API
+
+            API name :'githubData'
+
+5) implement client side API call
