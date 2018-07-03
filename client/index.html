@@ -3,11 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<!-- 
-<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" >
-
-<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script> -->
 
 <link rel="stylesheet" href="css/bootstrap.css" rel="stylesheet"/>
 <script src="../lib/jquery/dist/jquery.js"></script>
@@ -15,49 +10,65 @@
    <script src="../lib/angular/angular.min.js"></script>
    <script src="../lib/angular-ui-router/release/angular-ui-router.min.js"></script>
 
-<script type="text/javascript" src="app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
+<script src="app.js"></script>
+<script src="data.js"></script>
 
-<script type="text/javascript" src="../modules/home/index.js"></script>
-<script type="text/javascript" src="../modules/home/controller/homecon.js"></script>
-<script type="text/javascript" src="../modules/home/services/homeser.js"></script>
-
-<script type="text/javascript" src="../modules/user/index1.js"></script>
-<script type="text/javascript" src="../modules/user/controller/usercon.js"></script>
-
-
-<style>
-    .w3-container{
-    margin-left: 15px;
-    padding: 20px;
-    background-color: blue;
-
-  }  
-  .responsive {
-    margin-bottom: 10px;
-    margin-left: 355px;
-    border: 1px solid red;
-    width: 300px;
-  }
-  .input {
-    margin-left: 30px;px;
-  }
-   .block{
-    background-color: white;
-    height: 600px;
-   }
-   .data{
-    color: green;
-
-   }
-
-</style>
-    <title>github page</title>
+    <title>records</title>
+    <style type="text/css">
+ul{
+  list-style: none;
+}
+body{
+margin:20px;
+}
+    </style>
 </head>
 <body>
-<div class="w3-container">
-<div ng-app="github"  > 
-<div class="input">
-<div style="position: relative;" ui-view></div>
+
+
+<div ng-app="appMain" ng-controller="HomeCtrl"  > 
+
+<div >
+
+<p>total orders received by site = {{orderData.length}} </p> 
+
+<p>Total amount of the orders: {{ getTotal() }}</p>
+
+ <p>Names of the customers who ordered once and did not order again : </p>
+ {{ stats() }} 
+
+ <div ng-repeat="order in OnceOrderNameArray">
+   <h4>{{$index+1}}.{{order}}</h4>
+
+ </div>
+   
+
+
+<table>
+  <tr>
+    <th>Orders &nbsp;&nbsp;</th>
+    <th>Count of customers</th>
+
+  </tr>
+  <tr ng-repeat="(key, value) in mainRes" ng-if="$index < 4" >
+   
+  <td>{{key}}&nbsp;&nbsp;</td>
+    <td >{{value}}</td>
+
+
+  </tr>
+
+<td>5+ &nbsp;&nbsp;</td>
+<td>{{mainRes[5]}}</td>
+</table>
+
+
+
+</div>
+
+
 
 </body>
 </html>
+

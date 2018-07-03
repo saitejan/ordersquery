@@ -1,3 +1,5 @@
+
+
 const express = require('express')
 const app = express();
 
@@ -32,3 +34,4 @@ app.use('/api', router);
 
 app.listen(8001)
 module.exports = app;	
+console.log("server is listening on http://localhost:8001/")
